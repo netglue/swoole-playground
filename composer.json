@@ -1,0 +1,27 @@
+{
+    "name": "netglue/swoole-playground",
+    "description": "Mucking about with Swoole",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Steel",
+            "email": "george@net-glue.co.uk"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.2",
+        "ext-swoole": "^4",
+        "psr/container": "1.0.0",
+        "ext-pcntl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NG\\" : "src"
+        }
+    }
+}
