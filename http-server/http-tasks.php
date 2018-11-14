@@ -93,7 +93,7 @@ $onFinish = function (Server $server, int $taskId, $data) {
  */
 $httpServer->on('start', function(Server $server) {
     fwrite(STDOUT, sprintf(
-        'HTTP Server up and running at %s:%d' . PHP_EOL,
+        'HTTP Server up and running at http://%s:%d' . PHP_EOL,
         $server->host,
         $server->port
     ));
