@@ -38,10 +38,12 @@ $server->on('workerstart', function (Server $server, int $workerId) {
     /**
      * AFAIK, 'workerstart' is called for every http worker and task worker.
      * In this callback, you can only tell them apart if the workerId exceeds the number of
-     * defined http workers. I don't know what happens when a worker crashes and a new one is
-     * spawned… yet…
+     * defined http workers.
+     *
+     * In testing, killing off one of the HTTP workers re-spawns a worker with the same ID, so
+     * this simple statement continues to work over time as workers inevitably crash and burn…
      */
-    if($workerId >= $server->setting['worker_num']) {
+    if ($workerId >= $server->setting['worker_num']) {
         setProcessName(sprintf('task-worker-%d', $workerId));
     } else {
         setProcessName(sprintf('http-worker-%d', $workerId));
