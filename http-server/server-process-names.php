@@ -42,9 +42,9 @@ $server->on('workerstart', function (Server $server, int $workerId) {
      * spawned… yet…
      */
     if($workerId >= $server->setting['worker_num']) {
-        setProcessName(sprintf('http-worker-%d', $workerId));
-    } else {
         setProcessName(sprintf('task-worker-%d', $workerId));
+    } else {
+        setProcessName(sprintf('http-worker-%d', $workerId));
     }
 });
 
